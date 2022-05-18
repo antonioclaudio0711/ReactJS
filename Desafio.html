@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicação em ReactJS</title>
+</head>
+<body>
+
+    <div id="root"></div>
+
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+
+        class Componente_resposta extends React.Component {
+
+            constructor() {
+                super()
+                this.state = {
+                    nome01: "Antônio Claudio",
+                    nome02: "Ana Clara",
+                    nome03: "Juliana Martins"
+                }
+
+                this.alterar01 = this.alterar01.bind(this)
+                this.alterar02 = this.alterar02.bind(this)
+                this.alterar03 = this.alterar03.bind(this)
+            }
+
+            alterar01() {
+                this.setState({nome01: "Antônio Claudio Ferreira Filho"})
+            }
+
+            alterar02() {
+                this.setState({nome02: "Ana Clara de Bessa Ferreira"})
+            }
+
+            alterar03() {
+                this.setState({nome03: "Juliana Martins de Bessa Ferreira"})
+            }
+
+            render() {
+                return (
+                    <div>
+                        <h2>Exercício</h2>
+                        <hr />
+                        <p>Nome: {this.state.nome01}</p>
+                        <button onClick= {this.alterar01}>Alterar</button>
+                        <hr />
+                        <p>Nome: {this.state.nome02}</p>
+                        <button onClick= {this.alterar02}>Alterar</button>
+                        <hr />
+                        <p>Nome: {this.state.nome03}</p>
+                        <button onClick= {this.alterar03}>Alterar</button>
+                    </div>
+                )
+            }
+        }
+
+
+        ReactDOM.render(
+           <Componente_resposta />,
+           document.getElementById("root")
+        )
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicação em ReactJS</title>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+        
+        class Componente_a extends React.Component {
+            render () {
+                return (
+                    <h3>Componente_a</h3>
+                )
+            }
+        }
+        
+        class Componente_b extends React.Component {
+            render () {
+                return (
+                    <h3>Componente_b</h3>
+                )
+            }
+        }
+
+        class Meu_componente extends React.Component {
+            render () {
+                return (
+                    <div>
+                        <Componente_a />
+                        <hr />
+                        <Componente_b />
+                    </div>
+                )
+            }
+        }
+
+        const root = document.getElementById("root");
+        ReactDOM.render(<Meu_componente />, root);
+    </script>
+</body>
+</html>
