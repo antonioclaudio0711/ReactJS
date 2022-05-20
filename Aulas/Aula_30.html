@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicação em ReactJS</title>
+
+    <style>
+        .cor-vermelho {
+            color: red;
+        }
+
+        .tamanho {
+            font-size: 2cm;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="root"></div>
+
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+
+        class App extends React.Component {
+
+            alterar_username = (evento) => {
+                this.setState({username: evento.target.value})
+            }
+
+            alterar_password = (evento) => {
+                this.setState({password: evento.target.value})
+            }
+
+            submeter_formulario = (evento) => {
+                console.log(`Username: ${this.state.username}; Password: ${this.state.password}`)
+                evento.preventDefault()
+            }
+
+            constructor() {
+                super()
+                this.state = {
+                    username: "",
+                    password: ""
+                }
+            }
+
+            render() {
+                return(
+                    <form onSubmit={this.submeter_formulario}>
+                        <input type="text" value={this.state.username} onChange={this.alterar_username} placeholder="Username"/>
+                        <input type="password" value={this.state.password} onChange={this.alterar_password} placeholder="Password"/>
+                        <br />
+                        <input type="submit" value="Entrar" />
+                    </form>
+                )
+            }
+        }
+
+        ReactDOM.render(
+           <App />,
+           document.getElementById("root")
+        )
+
+    </script>
+</body>
+</html>

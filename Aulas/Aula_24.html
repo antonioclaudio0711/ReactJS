@@ -5,8 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aplicação em ReactJS</title>
-
-    <style></style>
 </head>
 <body>
 
@@ -20,15 +18,15 @@
 
         class App extends React.Component {
 
-            constructor() {
-                super()
-                this.state = {
-                }
-            }
-
             render() {
-                return(
-                    <div></div>
+
+                const nomes = ["Antônio Claudio", "Ana Clara", "Juliana", "Antônio Claudio"]
+                const final = nomes.map((nome, index) => <h3 key= {index}>{nome}</h3>)
+
+                return (
+                    <div>
+                        {final}
+                    </div>
                 )
             }
         }

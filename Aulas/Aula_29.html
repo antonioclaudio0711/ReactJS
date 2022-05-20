@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicação em ReactJS</title>
+
+    <style>
+        .cor-vermelho {
+            color: red;
+        }
+
+        .tamanho {
+            font-size: 2cm;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="root"></div>
+    <p>Select construído com HTML</p>
+    <select>
+        <option value="item1">Item 01</option>
+        <option value="item2" selected>Item 02</option>
+        <option value="item3">Item 03</option>
+    </select>
+
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+
+        class App extends React.Component {
+
+            selecionar = (evento) => {
+                this.setState({item: evento.target.value})
+            }
+
+            constructor() {
+                super()
+                this.state = {
+                    item: "item3"
+                }
+            }
+
+            render() {
+                return(
+                    <div>
+                        <p>Select construído com JSX</p>
+                        <select onChange={this.selecionar} value={this.state.item}>
+                            <option value="item1">Item 01</option>
+                            <option value="item2">Item 02</option>
+                            <option value="item3">Item 03</option>    
+                        </select>
+                        <p>O item selecionado foi: {this.state.item}</p>                  
+                        <hr />
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(
+           <App />,
+           document.getElementById("root")
+        )
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicação em ReactJS</title>
+</head>
+<body>
+
+    <div id="root"></div>
+
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+
+        class App extends React.Component {
+
+            render() {
+
+                const noticias = [
+                    {
+                        titulo: "Notícia 01",
+                        texto: "Texto da notícia 01",
+                        autor: "Autor 01"
+                    },
+                    {
+                        titulo: "Notícia 02",
+                        texto: "Texto da notícia 02",
+                        autor: "Autor 02"
+                    },
+                    {
+                        titulo: "Notícia 03",
+                        texto: "Texto da notícia 03",
+                        autor: "Autor 03"
+                    },
+                    {
+                        titulo: "Notícia 04",
+                        texto: "Texto da notícia 04",
+                        autor: "Autor 04"
+                    },
+                ]
+
+                const final = noticias.map(noticia => <Noticia noticia={noticia}/>)
+
+                return (
+                    <div>
+                        <h1>Notícias</h1>
+                        <hr />
+                        {final}
+                        <Noticia noticia = {noticias[0]}/>
+                        <Noticia noticia = {noticias[1]}/>
+                        <Noticia noticia = {noticias[2]}/>
+                    </div>
+                )
+            }
+        }
+
+        class Noticia extends React.Component {
+
+            constructor(props) {
+                super(props)
+            }
+
+            render() {
+                return (
+                    <div>
+                        <h3>{this.props.noticia.titulo}</h3>
+                        <p>{this.props.noticia.texto}</p>
+                        <small><i>{this.props.noticia.autor}</i></small>
+                        <hr />
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(
+           <App />,
+           document.getElementById("root")
+        )
+
+    </script>
+</body>
+</html>

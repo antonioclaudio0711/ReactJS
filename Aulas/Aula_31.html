@@ -6,7 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aplicação em ReactJS</title>
 
-    <style></style>
+    <style>
+        .cor-vermelho {
+            color: red;
+        }
+
+        .tamanho {
+            font-size: 2cm;
+        }
+    </style>
 </head>
 <body>
 
@@ -22,13 +30,30 @@
 
             constructor() {
                 super()
+                console.log("Construído!")
                 this.state = {
+                    nome: "Antônio Claudio"
                 }
             }
 
+            componentDidMount() {
+                console.log("Montado!")
+            }
+
+            alterar = (evento) => {
+                this.setState({nome: "Antônio Claudio Ferreira Filho"})
+                console.log("Alterado!!")
+            }
+
             render() {
+                console.log("Renderizado!")
                 return(
-                    <div></div>
+                    <div>
+                        Olá {this.state.nome}!
+                        <div>
+                            <button onClick = {this.alterar}>Alterar</button>    
+                        </div>
+                    </div>
                 )
             }
         }

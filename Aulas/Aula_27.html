@@ -6,7 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aplicação em ReactJS</title>
 
-    <style></style>
+    <style>
+        .cor-vermelho {
+            color: red;
+        }
+
+        .tamanho {
+            font-size: 2cm;
+        }
+    </style>
 </head>
 <body>
 
@@ -23,18 +31,31 @@
             constructor() {
                 super()
                 this.state = {
+                    nome : "Antônio Claudio"
                 }
+            }
+
+            alterar = (evento) => {
+                this.setState({nome: evento.target.value})
             }
 
             render() {
                 return(
-                    <div></div>
+                    <div>
+                        <input 
+                            type="text" 
+                            value={this.state.nome}
+                            onChange={this.alterar}
+                        />
+                        
+                        <p>Valor: {this.state.nome}</p>
+                    </div>
                 )
             }
         }
 
         ReactDOM.render(
-           <App />,
+           <App cor = {true} tamanho = {true}/>,
            document.getElementById("root")
         )
 

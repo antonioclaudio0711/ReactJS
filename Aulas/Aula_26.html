@@ -6,9 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aplicação em ReactJS</title>
 
-    <style></style>
+    <style>
+        .cor-vermelho {
+            color: red;
+        }
+
+        .tamanho {
+            font-size: 2cm;
+        }
+    </style>
 </head>
 <body>
+
+    <h1 style="color: red;">Título</h1>
 
     <div id="root"></div>
 
@@ -20,16 +30,27 @@
 
         class App extends React.Component {
 
-            constructor() {
-                super()
-                this.state = {
-                }
+            constructor(props){
+                super(props)
             }
 
             render() {
-                return(
-                    <div></div>
+
+                let estilo = {
+                    color: "red",
+                    fontSize: "2em",
+                }
+
+                let estilo__2 = {
+                    border: "1px solid red",
+                }
+
+                return (
+                    <div>
+                        <p style = {estilo__2}>Texto com estilo!</p> 
+                    </div>
                 )
+            //{`${estilo} tamanho`} --> o tamanho será incorporado de qualquer forma, por outro lado, o estilo só será incorporado quando descrita sua condição de existência
             }
         }
 
